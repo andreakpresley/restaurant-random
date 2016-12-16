@@ -24,7 +24,7 @@ import 'rxjs/Rx';
             })
             .catch((error: Response) => Observable.throw(error.json()));*/
         let location = latitude + ',' + longitude;
-        return this.http.get('http://localhost:3000/restaurants?location=' + location)
+        return this.http.get('https://restaurant-random.herokuapp.com/restaurants?location=' + location)
             .map((response: Response) => {
                 const results = response.json().results;
                 return results;
@@ -33,7 +33,7 @@ import 'rxjs/Rx';
     }
 
     getPlaceDetails(place_id) {
-        return this.http.get('http://localhost:3000/restaurant-id?placeId=' + place_id)
+        return this.http.get('https://restaurant-random.herokuapp.com/restaurant-id?placeId=' + place_id)
             .map((response: Response) => {
                 //console.log('service', response);
                 //const results = response.json().obj;
