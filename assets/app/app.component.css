@@ -1,0 +1,52 @@
+.grid__row {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  -ms-box-orient: horizontal;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.grid__item {
+  background: #1d5ea0;
+  padding: 5px;
+  width: 30%;
+  height: 100px;
+  margin: 10px;
+  line-height: 100px;
+  color: white;
+  font-weight: bold;
+  font-size: 2em;
+  text-align: center;
+  position: relative;
+}
+
+.cancel {
+  position: absolute;
+  top: 0px;
+  left: 1px;
+  cursor: pointer;
+}
+
+.winner {
+  background-color: #1d5ea0;
+  text-align: center;
+  min-width: 300px;
+  color: white;
+}
+
+.winner-name {
+  font-size: 2.5em;
+}
+
+.winner-details {
+  font-size: 22px;
+  text-align: left;
+}

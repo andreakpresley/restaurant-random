@@ -1,0 +1,44 @@
+<div class="container">
+  <h1>
+    'Restuarant Random'
+  </h1>
+  <div class="row">
+    <div class="col-xs-6">
+      <div class="input-group input-group-lg">
+        <input type="text" class="form-control" placeholder="ZIP Code" aria-describedby="basic-addon1">
+        <span (click)="getPosition()" style="padding: 3px 16px;cursor: pointer;" class="input-group-addon" id="basic-addon1"><i class="material-icons">gps_not_fixed</i></span>
+      </div>
+    </div>
+    <div class="col-xs-6">
+      <button type="button" class="btn btn-secondary btn-lg">Find Location</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8">
+      <p>Picking where to eat can be a challenge. Let the machine pick for you! </p>
+      <p>If you want to narrow down your choices just click the 'x' in the top left and it will be removed from the random selection.
+      </p>
+    </div>
+    <div class="col-xs-4">
+      <button type="button" class="btn btn-secondary btn-lg" (click)='chooseRestuarant()'>Pick!</button>
+    </div>
+  </div>
+  <ul class="grid__row" *ngIf="!restuarantSelected">
+    <li class="grid__item" *ngFor="let restaurant of restaurants; let i = index" (click)='clickedPlace(restaurant.place_id)'>
+      <i class="material-icons cancel" (click)='removeChoice(i)'>clear</i> {{restaurant.name}}
+    </li>
+  </ul>
+  <div class="row">
+    <div *ngIf="restuarantSelected" class="winner col-sm-offset-3 col-sm-6 col-sm-offset-3">
+      <span class="winner-name">{{restaurantDetails.name}}</span><br>
+      <div class="winner-details">
+        Address: {{restaurantDetails.formatted_address}}<br> 
+        Phone: {{restaurantDetails.formatted_phone_number}}<br>
+        Price: {{restaurantDetails.price_level}} <br> 
+        Rating: {{restaurantDetails.rating}} <br> 
+        <a [href]="restaurantDetails.url"  target="_blank">Directions</a> <br> 
+         <a *ngIf="restaurantDetails.website" [href]="restaurantDetails.website" target="_blank">Website</a>
+      </div>
+    </div>
+  </div>
+</div>
